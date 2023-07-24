@@ -24,6 +24,15 @@ class Vehiculo(models.Model):
     precio=models.IntegerField(verbose_name='Precio')
     fecha_creacion=models.DateTimeField(auto_now_add=True,verbose_name='Fecha de Creacion')
     fecha_modificacion=models.DateTimeField(auto_now=True,verbose_name='Fecha de modificacion')
-
    
+    def condicion_precio(self):
+        if self.precio <= 10000:
+            return "Bajo"
+        elif self.precio <= 30000:
+            return "Medio"
+        else:
+            return "Alto"
+
+    def __str__(self):
+        return self.nombre
         

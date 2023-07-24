@@ -1,5 +1,6 @@
 from django.shortcuts import render,HttpResponse,HttpResponseRedirect
 from .forms import VehiculoForm
+from .models import Vehiculo
 from django.contrib import messages
 from django.urls import reverse
 def index(request):
@@ -17,3 +18,8 @@ def form_view(request):
         form = VehiculoForm()
         context={'form':form}
         return render(request,'vehiculo/formulario.html',context)
+
+def listar_view(request):
+    vehiculos=Vehiculo.objects.all()
+    context = {'vehiculos':vehiculos}
+    return render(request,'vehiculo/lista_vehiculos.html',context)
