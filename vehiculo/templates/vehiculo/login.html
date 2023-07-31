@@ -1,0 +1,18 @@
+{% extends 'vehiculo/base.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="row col-4 mt-3 ">
+    <form action="" method="post">
+        {% csrf_token %}
+        {{form|crispy}}
+        <p class="text-center">Si no tienes cuenta,registrate en <a href="/register">Aquí</a></p>
+        <input type="submit" value="Enviar">
+    </form>
+
+
+
+
+</div>
+
+
+{% endblock content %}

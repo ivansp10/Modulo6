@@ -20,21 +20,45 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              {% if perms.vehiculo.visualizar_catalogo %}
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="/">Inicio</a>
               </li>
+              {% endif %}
+              {% if perms.vehiculo.add_vehiculomodel %}
               <li class="nav-item">
                 <a class="nav-link" href="/vehiculo/add">Agregar</a>
               </li>
+              {% endif %}
+              {% if perms.vehiculo.visualizar_catalogo %}
               <li class="nav-item">
                 <a class="nav-link" href="/vehiculo/listar">Listar</a>
               </li>
+              {% endif %}
+
+              
             </ul>
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
-              <button class="btn btn-outline-success" type="submit">Buscar</button>
-            </form>
+           
           </div>
+        </div>
+    
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#">Hola, {{user.username}}</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="/logout">Salir</a>
+                </li>
+
+                {% else %}
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="/login">Login</a>
+                </li>
+                {% endif %}
+          </ul>
         </div>
       </nav>
       <div class="container">

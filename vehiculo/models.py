@@ -35,4 +35,5 @@ class Vehiculo(models.Model):
 
     def __str__(self):
         return self.nombre
-        
+    class Meta:
+        permissions = [("visualizar_catalogo","visualizar catalogo")]     
